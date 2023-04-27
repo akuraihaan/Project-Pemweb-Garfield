@@ -1,0 +1,50 @@
+.judul , p {
+    position: absolute;
+    width: 614px;
+    height: 78px;
+    left: 800px;
+    top: 113px;
+
+    font-family: 'Josefin Sans';
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 111.5%;
+    /* identical to box height, or 78px */
+
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.015em;
+
+    color: #141010;
+
+}
+
+.ellipse1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 215px;
+    top: 284px;
+
+
+}
+
+.ellipse2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 620px;
+    top: 384px;
+
+
+}
+
+.ellipse3{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 1094px;
+    top: 417px;
+
+
+}
