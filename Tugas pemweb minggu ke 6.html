@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Tugas Nomor 1
+// Fungsi untuk mengecek bilangan prima
+function isPrime(num) {
+  if (num <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Fungsi untuk menampilkan angka dalam rentang tertentu
+function printInRange(start, end) {
+  if (start >= end) {
+    console.log("Input rentang salah");
+    return;
+  }
+  for (let i = start; i <= end; i++) {
+    let isPrimeNum = isPrime(i);
+    if (isPrimeNum) {
+      console.log(i + " Bilangan PRIMA");
+    } else {
+      console.log(i + " Bukan Bilangan PRIMA");
+    }
+  }
+}
+// Contoh penggunaan fungsi printInRange
+printInRange(0, 23);
+
+
+// Tugas Nomor 2
+function hitungBurger(jmlRoti, jmlDaging, jmlKeju) {
+  let jmlBurgerSpesial = 0;
+  let jmlBurgerDaging = 0;
+  let jmlBurgerBiasa = 0;
+
+  console.log("jumlah roti : " + jmlRoti);
+  console.log("jumlah daging : " + jmlDaging);
+  console.log("jumlah keju : " + jmlKeju);
+
+  // membuat burger spesial
+  while (jmlRoti >= 2 && jmlDaging >= 1 && jmlKeju >= 1) {
+    jmlRoti -= 2;
+    jmlDaging--;
+    jmlKeju--;
+    jmlBurgerSpesial++;
+  }
+
+  // membuat burger daging
+  while (jmlRoti >= 2 && jmlDaging >= 2) {
+    jmlRoti -= 2;
+    jmlDaging -= 2;
+    jmlBurgerDaging++;
+  }
+
+  // membuat burger biasa
+  while (jmlRoti >= 2 && jmlDaging >= 1) {
+    jmlRoti -= 2;
+    jmlDaging--;
+    jmlBurgerBiasa++;
+  }
+
+  if (jmlRoti < 2 || jmlDaging < 1) {
+    // tidak bisa membuat burger apa pun
+    console.log("Tidak ada BURGER yang dapat dibuat");
+  } else {
+    // menghitung dan menampilkan jumlah burger yang berhasil dibuat
+    console.log("Burger yang dihasilkan:");
+    console.log(jmlBurgerSpesial + " BURGER SPESIAL");
+    console.log(jmlBurgerDaging + " BURGER DAGING");
+    console.log(jmlBurgerBiasa + " BURGER BIASA");
+  }
+
+  console.log("Sisa Roti = " + jmlRoti + " buah, Daging = " + jmlDaging + " lembar, keju = " + jmlKeju + " lembar");
+}
+
+// contoh penggunaan
+hitungBurger(1, 1, 2);
+
+
+    </script>
+</body>
+</html>
