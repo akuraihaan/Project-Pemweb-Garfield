@@ -7,7 +7,7 @@
 
     font-family: 'Josefin Sans';
     font-weight: 500;
-    font-size: 70px;
+    font-size: 65px;
     line-height: 111.5%;
     /* identical to box height, or 78px */
 
@@ -23,8 +23,8 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    left: 215px;
-    top: 284px;
+    left: 415px;
+    top: 384px;
 
 
 }
@@ -33,8 +33,8 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    left: 620px;
-    top: 384px;
+    left: 970px;
+    top: 484px;
 
 
 }
@@ -43,8 +43,8 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    left: 1094px;
-    top: 417px;
+    left: 1494px;
+    top: 517px;
 
 
 }
