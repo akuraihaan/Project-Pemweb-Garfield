@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>bahasa yang di pelajari</title>
+	<title>Quiz Flexbox/Kontainer</title>
 	<style>
 		body {
 			background-color: #f7f3f3;
@@ -36,8 +36,6 @@
 			box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
 		}
 
-	
-
 		.button {
 			background-color: #494645;
 			border: none;
@@ -48,6 +46,15 @@
 			cursor: pointer;
 			transition: all 0.5s ease;
 			margin-bottom: 10px;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+		}
+
+		.button img {
+			height: 50px;
+			width: 50px;
+			margin-right: 10px;
 		}
 
 		.button:hover {
@@ -59,29 +66,13 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Bahasa apa yang ingin kamu pelajari ?</h1>
-		<button class="button" onclick="pilihan1()">Bahasa Banjar</button>
-		<button class="button" onclick="pilihan2()">Bahasa Sunda</button>
-		<button class="button" onclick="pilihan3()">Bahasa Dayak</button>
-		<button class="button" onclick="pilihan4()">Bahasa Jawa</button>
+		<img src="cewedayak.png" alt="Karakter" style="height: 50px; width: 50px; margin-right: 10px;">
+		<h1 id="bahasa">Bahasa apa yang ingin kamu pelajari?</h1> 
+		<a class="button" href="halaman2.html">
+			<img src="perisai dayak.webp" alt="Deskripsi gambar">
+			Bahasa Dayak
+		</a>
+
 	</div>
-
-	<script>
-		function pilihan1() {
-			window.location.href = "https://contoh.com/bahasa-banjar";
-		}
-
-		function pilihan2() {
-			window.location.href = "https://contoh.com/bahasa-sunda";
-		}
-
-		function pilihan3() {
-			window.location.href = "https://contoh.com/bahasa-dayak";
-		}
-
-		function pilihan4() {
-			window.location.href = "https://contoh.com/bahasa-jawa";
-		}
-	</script>
 </body>
 </html>

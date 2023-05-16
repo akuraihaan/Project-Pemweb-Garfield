@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman Web</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-info {
+      background-color: blue;
+      color: white;
+      text-align: right;
+      padding: 10px;
+    }
+
+    .navbar-menu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #f1f1f1;
+      padding: 20px;
+      transition: left 0.3s;
+    }
+
+    .navbar-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar-menu li {
+      margin-bottom: 10px;
+    }
+
+    .navbar-menu a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .navbar-menu a:hover {
+      color: blue;
+    }
+
+    .content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar-info">
+    <a href="#">Login</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="navbar-menu" id="navbarMenu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Live Coding</a></li>
+      <li><a href="#">Literasi</a></li>
+      <li><a href="#">Ujian</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <!-- Konten halaman web -->
+  </div>
+
+  <script>
+    const navbarMenu = document.getElementById('navbarMenu');
+    const content = document.getElementsByClassName('content')[0];
+
+    navbarMenu.addEventListener('mouseover', function() {
+      navbarMenu.style.left = '0';
+      content.style.marginLeft = '200px';
+    });
+
+    navbarMenu.addEventListener('mouseout', function() {
+      navbarMenu.style.left = '-200px';
+      content.style.marginLeft = '0';
+    });
+  </script>
+</body>
+</html>
