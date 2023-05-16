@@ -1,0 +1,81 @@
+@font-face {
+    font-family: Josef;
+    src: url(static/JosefinSans-Regular.ttf);
+}
+@font-face {
+    font-family: Josef2;
+    src: url(JosefinSans-VariableFont_wght.ttf);
+}
+
+body{
+background: url(bg.jpg);
+    background-clip: content-box;
+    background-size: 100%;
+}
+
+.container > div{
+    text-align: center;
+    padding-top: 17px;
+    font-family: Josef;
+}
+h1{
+    font-size: 40px;
+    font-family: Josef2;
+    color: white;
+}
+.input-style {
+    padding: 4 180 10 15px;
+    margin: 4px;
+    border: 3px solid #675D50;
+    border-radius: 5px;
+    background-color: #675D50;
+    opacity: 0.7;
+    font-size: 16px;
+    color: white;
+  }
+  
+  .input-style:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  button {
+    background-color: #A9907E;
+    border: 1px solid #675D50;
+    border-radius: .5rem;
+    color: white;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    padding: .75rem 1rem;
+    text-align: center;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+  }
+  
+  button:hover {
+    background-color: #675D50;
+  }
+  
+  button:focus {
+    outline: 2px solid rgba(0,0,0,0.1);
+    outline-offset: 2px;
+  }
+  
+  button:focus-visible {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  a{
+    color: #111827;
+  }
+  
