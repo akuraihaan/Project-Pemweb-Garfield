@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <br><br><br>
+        </div>
+        <div>
+            <h1>PLAYVOC'BULARY</h1>
+            <p style="font-size: 20px;">Permainan Belajar Bahasa Daerah</p>
+        </div>
+        <div id="bulat">
+            <div class="clickable">
+                <a href="">Profil</a>
+            </div>
+            <div class="clickable">
+                <a href="">Mulai</a>
+            </div>
+            <div class="clickable">
+                <a href="">Tentang</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+    document.getElementsByClassName("clickable1").click(function(){
+    window.location = $(this).find("a").attr("href");
+    });
+
+    });
+    </script>
+</body>
+</html>
