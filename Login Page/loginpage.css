@@ -10,7 +10,7 @@
 body{
 background: url(bg.jpg);
     background-clip: content-box;
-    background-size: 100%;
+    background-size: 110%;
 }
 
 .container > div{

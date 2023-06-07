@@ -30,10 +30,9 @@ h1{
 }
 
 .clickable , a{
-    cursor:pointer;
+    cursor: pointer;
     padding-top:12px;
     padding-bottom:12px;
-    text-decoration: none;
-    color: #FFFFFF
+    color: white;
 }
 
