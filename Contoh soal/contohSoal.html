@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Soal</title>
+    <link rel="stylesheet" href="contohSoal.css">
+    <link rel="stylesheet" href="/Pemrograman web 1/Progress/fontawesome-free-5.15.4-web/css/all.css">
+</head>
+<body>
+    <main>
+        <main>
+            <h1 style="padding-bottom: 19px;">Contoh Soal dan cara menjawabnya</h1>
+            <!-- creating a modal for when quiz ends -->
+            <div class="modal-container" id="score-modal">
+              
+                <div class="modal-content-container">
+                  
+                    <h1>Congratulations, Quiz Completed.</h1>
+                    <div class="grade-details">
+                        <p>Attempts : 10</p>
+                        <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                        <p>Right Answers : <span id="right-answers"></span></p>
+                        <p>Grade : <span id="grade-percentage"></span>%</p>
+                        <p ><span id="remarks"></span></p>
+                    </div>
+                  
+                    <div class="modal-button-container">
+                        <button onclick="closeScoreModal()">Continue</button>
+                    </div>
+                  
+                </div>
+            </div>
+    
+            <div class="game-quiz-container">
+                <div class="game-details-container">
+                    <h1>Skor : 1 / 10</h1>
+                    <h1> Pertanyaan ke : 1 / 10</h1>
+                </div>
+    
+                <div class="game-question-container" >
+                    <!-- isian div radius -->Siapa nama anda? , terjemahkan kalimat tersebut menjadi Bahasa Dayak Ngaju
+                </div>
+    
+                <div class="game-options-container">
+                  
+                   <div class="modal-container" id="option-modal">
+                     
+                        <div class="modal-content-container">
+                             <h1>Harap jawab dulu</h1>
+                          
+                             <div class="modal-button-container">
+                                <button onclick="closeOptionModal()">Continue</button>
+                            </div>
+                          
+                        </div>
+                     
+                   </div>
+                  
+                        <input placeholder="Terjemahkan...." class="input-style" type="text">
+                        <label for="option-one" class="option" id="option-one-label"></label>
+                
+    
+                </div>
+    
+                <div class="next-button-container">
+                    <button onclick="handleNextQuestion()">Next Question</button>
+                </div>
+    
+            </div>
+            <div class="text-start" style="padding-top: 20px; ">
+                <div>
+                    <i class="fas fa-chevron-left"></i>     <a href="/Pemrograman web 1/Progress/Tampilan bermain &  Materi/materi.html" class="text-decoration-none">Kembali</a>
+                </div>
+            </div>
+        </main>
+    </main>
+</body>
+</html>

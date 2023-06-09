@@ -38,7 +38,15 @@ h1{
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
-
+  .swal2-popup {
+    background-color: #A9907E;
+    border: 3px solid #675D50;
+    background-color: #675D50;
+    font-size: 11px;
+    color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    font-family: Josef;
+  }
   button {
     background-color: #A9907E;
     border: 1px solid #675D50;

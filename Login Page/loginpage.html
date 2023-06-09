@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="loginpage.css">
+    <link rel="stylesheet" href="cdn.jsdelivr.net_npm_sweetalert2@11_dist_sweetalert2.min.css">
 </head>
 <body>
     <div class="container">
@@ -14,28 +15,88 @@
         <div>
             <h1>MASUK</h1>
             <p>Semangat bermainnya ya!! , semoga berhasil!</p>
-            <input placeholder="Email..." class="input-style" type="text">
+            <input placeholder="Email..." class="input-style" type="text" id="email">
         </div>
         <div>
-            <input placeholder="Kata Sandi..." class="input-style" type="password" id="myInput">
+            <input placeholder="Kata Sandi..." class="input-style" type="password" id="Password">
         </div>
         <div><input type="checkbox" onclick="myFunction()">Lihat Password</div>
         <div>
-            <a href="/Pemrograman web 1/Progress/Home Page/home.html"><button>Masuk</button></a>
+            <button type="submit"  id="login" name="login_submit" value="Log in">Masuk
         </div>
         <div>
             <a href="/Pemrograman web 1/Progress/Register Page/registerpage.html">Belum Punya Akun?</a>
         </div>
     </div>
-    <script>
-        function myFunction() {
-        var x = document.getElementById("myInput");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-        } 
-        </script>
+    <script src="register.js"></script>
+    <script src="cdn.jsdelivr.net_npm_sweetalert2@11_dist_sweetalert2.min.js"></script>
 </body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getDatabase , set, ref, update} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDubVPYLP3c1pfOtouSyRT5pC2xkH36uLI",
+      authDomain: "dheyy-pemweb.firebaseapp.com",
+      databaseURL: "https://dheyy-pemweb-default-rtdb.firebaseio.com",
+      projectId: "dheyy-pemweb",
+      storageBucket: "dheyy-pemweb.appspot.com",
+      messagingSenderId: "189685560743",
+      appId: "1:189685560743:web:8ffbc180d4065d9fb23282"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    // Login javascript
+    login.addEventListener('click',(e)=>{
+        var email = document.getElementById('email').value
+        var password = document.getElementById('Password').value
+        
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user; 
+        location.href = "http://127.0.0.1:5500/Pemrograman%20web%201/Progress/Home%20Page/home.html"
+        Swal.fire('Anda berhasil Login!')
+        const dt = new Date();
+        update(ref(database, 'users/' + user.uid),{
+            last_login: dt,
+        
+        })
+
+        // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        Swal.fire('Username / Password anda salah!')
+  });
+
+    });
+
+const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+    </script>
 </html>
