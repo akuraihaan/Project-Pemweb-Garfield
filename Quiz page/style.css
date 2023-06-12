@@ -77,6 +77,8 @@ main{
     justify-content: center;
     border: 2px solid darkgray;
     border-radius: 25px;
+    background-color: #F3DEBA;
+
 }
 
 .game-question-container h1{
@@ -92,6 +94,7 @@ main{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+
 }
 
 .game-options-container span{
@@ -108,16 +111,17 @@ span label{
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background-color: #F3DEBA;
     transition: transform 0.3s;
     font-weight: 600;
-    color: rgb(22, 22, 22);
+    color: black;
 }
 
 span label:hover{
     -ms-transform: scale(1.12);
     -webkit-transform: scale(1.12);
     transform: scale(1.12);
-    color: white;
+    color: #A9907E;
 }
 
 input[type="radio"] {
@@ -141,14 +145,16 @@ input[type=radio]:checked ~ .option {
     height: 2rem;
     border-radius: 10px;
     background: none;
-    color: rgb(25, 25, 25);
-    font-weight: 600;
+    color: black;
+    font-family: Josef;
     border: 2px solid gray;
     cursor: pointer;
     outline: none;
+    background-color: #F3DEBA;
+
 }
 .next-button-container button:hover{
-    background-color: rgb(143, 93, 93);
+    background-color: #A9907E;
 }
 
 .modal-container{
@@ -222,6 +228,10 @@ input[type=radio]:checked ~ .option {
 }
 .modal-button-container button:hover{
     background-color: rgb(83, 82, 82);
+}
+
+#display-question{
+    color: black;
 }
 
 @media(min-width : 300px) and (max-width : 350px){

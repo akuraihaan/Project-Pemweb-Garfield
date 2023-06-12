@@ -6,6 +6,7 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="loginpage.css">
     <link rel="stylesheet" href="cdn.jsdelivr.net_npm_sweetalert2@11_dist_sweetalert2.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.15.4-web/css/all.css">
 </head>
 <body>
     <div class="container">
@@ -25,7 +26,7 @@
             <button type="submit"  id="login" name="login_submit" value="Log in">Masuk
         </div>
         <div>
-            <a href="/Pemrograman web 1/Progress/Register Page/registerpage.html">Belum Punya Akun?</a>
+            <a href="/Register Page/registerpage.html">Belum Punya Akun?</a>
         </div>
     </div>
     <script src="register.js"></script>
@@ -67,7 +68,7 @@
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user; 
-        location.href = "http://127.0.0.1:5500/Pemrograman%20web%201/Progress/Home%20Page/home.html"
+        location.href = "http://127.0.0.1:5500/Home%20Page/home.html"
         Swal.fire('Anda berhasil Login!')
         const dt = new Date();
         update(ref(database, 'users/' + user.uid),{
