@@ -1,0 +1,39 @@
+@font-face {
+    font-family: Josef;
+    src: url(static/JosefinSans-Medium.ttf)
+
+}
+
+body{
+    background: url(bg.jpg);
+    background-size: 110%;
+    font-family: Josef;
+}
+
+.container > div{
+    text-align: center;
+    padding-top: 17px;
+    font-family: Josef;
+}
+h1{
+    font-size: 50px;
+    font-family: Josef;
+    color: white;
+}
+
+#bulat > div{
+    background-color: #675D50;
+    border-radius: 50%;
+    font-size: 19px;
+    display:inline-flex;
+    padding: 60px 60px 60px 60px;
+    margin: 30px;
+    color: white;
+}
+
+.clickable , a{
+    cursor: pointer;
+    padding-top:12px;
+    padding-bottom:12px;
+    color: white;
+}

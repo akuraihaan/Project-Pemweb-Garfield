@@ -1,0 +1,27 @@
+body{
+    background: url(bg.jpg);
+    background-size: 116%;
+}
+
+@font-face {
+    font-family: Josef;
+    src: url(static/JosefinSans-Medium.ttf)
+
+}
+
+video{
+    float: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 400px;
+    margin-left: 420px;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 19px;
+}
+
+.judul{
+    font-family: Josef;
+    text-align: center;
+    padding-top: 50px;
+}
