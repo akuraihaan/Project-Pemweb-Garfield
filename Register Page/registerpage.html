@@ -23,11 +23,11 @@
             <input placeholder="Email..." class="input-style" type="email" id="email">
         </div>
         <div>
-            <input placeholder="Kata Sandi..." class="input-style" type="password" id="Password">
+            <input placeholder="Kata Sandi..." class="input-style" type="password" id="password">
         </div>
-        <div><input type="checkbox" onclick="myFunction()">Lihat Password</div>
+        <div><input type="checkbox" onclick="myFunction()">Lihat password</div>
         <div>
-            <button type="submit"  id="signUp" name="signup_submit" value="Sign up">Daftar
+            <button type="submit" id="signUp" name="signup_submit" value="Sign up">Daftar
         </div>
         <div>
             <a href="/Login Page/loginpage.html">Sudah punya akun?</a>
@@ -37,10 +37,11 @@
     <script src="cdn.jsdelivr.net_npm_sweetalert2@11_dist_sweetalert2.min.js"></script>
 </body>
 <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-    import { getDatabase , set, ref} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+    // Import the functions you need from the SDKs you need 
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    // import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+    // import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getDatabase, ref, set, push, get, child, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -58,37 +59,129 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const auth = getAuth();
+    const db = getDatabase(app);
 
-    signUp.addEventListener('click',(e) => {
-        var email = document.getElementById('email').value
-        var password = document.getElementById('Password').value
-        var username = document.getElementById('text').value
+    // signUp.addEventListener('click',(e) => {
+    //     var email = document.getElementById('email').value
+    //     var password = document.getElementById('password').value
+    //     var username = document.getElementById('text').value
 
-        createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
+    //     createUserWithEmailAndPassword(auth, email, password)
+    // .then((userCredential) => {
+    //     // Signed in 
+    //     const user = userCredential.user;
 
-        set(ref(database, 'users/' + user.uid),{
-            username: username,
-            email: email,
-            password: password
+    //     set(ref(database, 'users/' + user.uid),{
+    //         username: username,
+    //         email: email,
+    //         password: password
 
-        })
+    //     })
+    //     sessionStorage.setItem('username', username.value)
+    //     Swal.fire('Anda berhasil terdaftar');
+    //     // ...
+    // })
+    // .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
 
-        Swal.fire('Anda berhasil terdaftar');
-        // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+    //     Swal.fire('Akun anda telah terdaftar sebelumnya')
+    //     // ..
+    // });
 
-        Swal.fire('Akun anda telah terdaftar sebelumnya')
-        // ..
-    });
+    // })
 
-    })
+    // Initialize Firebase
+    // const app = initializeApp(firebaseConfig);
+
+// ---------------------- The References----------------
+    const username = document.getElementById('email');
+    const name = document.getElementById('text');
+    const pass = document.getElementById('password');
+    const submit = document.getElementById('signUp');
+// -------------------------Validation---------------------
+
+    function isEmptyOrSpaces(str){
+      return str === null || str.match(/^ *$/) !== null;
+    }
+
+    function Validation(){
+      let userregex = /^[a-zA-Z0-9]+@(gmail|outline|outlook)\.com$/;
+      let nameregex = /^[a-zA-Z\s]+$/;
+      // let emailregex = /^[a-zA-Z0-9]+@(gmail|outline|outlook)\.com$/;
+      let passregex = /^[a-zA-Z0-9]{6,}$/;
+
+      if(isEmptyOrSpaces(username.value)||isEmptyOrSpaces(name.value)||isEmptyOrSpaces(pass.value)){
+            Swal.fire('Akun anda telah terdaftar sebelumnya');
+          
+          return false;
+      }
+
+      if(!userregex.test(username.value)){
+        Swal.fire('Masukkan email yang valid!');
+
+        return false;
+      }
+
+
+      if(!nameregex.test(name.value)){
+        Swal.fire('Nama hanya berupa huruf!');
+
+        return false;
+      }
+
+      if(!passregex.test(pass.value)){
+        Swal.fire('Password minimal 6 karakter!');
+
+        return false;
+      }
+
+      return true;
+    }
+
+// ---------------------REGISTER USER TO FIREBASE-------------------
+
+    function RegisterUser() {
+      if(!Validation()){
+        return;
+      };
+      const dbRef = ref(db);
+
+      get(child(dbRef, "UserList/"+username.value.replace(/\./g, ','))).then((snapshot)=>{
+        if(snapshot.exists()){
+            Swal.fire('Akun anda telah terdaftar sebelumnya');
+
+        }
+
+        else{
+
+              set(ref(db, "UserList/"+ username.value.replace(/\./g, '.')),
+              {
+                username : username.value.replace(/\./g, '.'),
+                fullname : name.value,
+                password: pass.value,
+              })
+              .then(()=>{
+                sessionStorage.setItem('username', username.value.replace(/\./g, '.'));
+                sessionStorage.setItem('password', pass.value);
+                Swal.fire('Anda berhasil terdaftar');
+
+              })
+              .catch((error)=>{
+                Swal.fire('Akun anda telah terdaftar sebelumnya');
+                
+              })
+        
+        }
+      });
+
+    }
+
+
+// --------------------ASSIGN THE EVENTS---------------------
+
+    submit.addEventListener('click', RegisterUser);
+
+    
   </script>
 </html>

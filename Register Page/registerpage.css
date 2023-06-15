@@ -8,10 +8,14 @@
 }
 
 body{
-background: url(bg.jpg);
-    background-clip: content-box;
-    background-size: 110%;
-    background-repeat: no-repeat
+    background: url(bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Josef;
+    height: 100vh; /* Menetapkan tinggi elemen body menjadi 100% tinggi viewport */
+    width: 100%; /* Menetapkan lebar elemen body menjadi 100% lebar viewport */
+    /* ... kode CSS lainnya ... */
 }
 
 .container > div{

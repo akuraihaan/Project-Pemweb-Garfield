@@ -19,7 +19,7 @@
             <input placeholder="Email..." class="input-style" type="text" id="email">
         </div>
         <div>
-            <input placeholder="Kata Sandi..." class="input-style" type="password" id="Password">
+            <input placeholder="Kata Sandi..." class="input-style" type="password" id="password">
         </div>
         <div><input type="checkbox" onclick="myFunction()">Lihat Password</div>
         <div>
@@ -36,8 +36,9 @@
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-    import { getDatabase , set, ref, update} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+    // import { getDatabase , set, ref, update} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+    // import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+    import { getDatabase, ref, set, push, get, child, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -53,51 +54,209 @@
       appId: "1:189685560743:web:8ffbc180d4065d9fb23282"
     };
   
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const auth = getAuth();
+//     // Initialize Firebase
+//     const app = initializeApp(firebaseConfig);
+//     const database = getDatabase(app);
+//     const auth = getAuth();
 
-    // Login javascript
-    login.addEventListener('click',(e)=>{
-        var email = document.getElementById('email').value
-        var password = document.getElementById('Password').value
-        
+//     // Login javascript
+//     login.addEventListener('click',(e)=>{
+//         var email = document.getElementById('email').value
+//         var password = document.getElementById('password').value
+//     signInWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//         // Signed in 
+//         location.href = "http://127.0.0.1:5500/Home%20Page/home.html"
+//         const dt = new Date();
+//         update(ref(database, 'users/' + user.uid),{
+//             last_login: dt,
+//         })
+//         Swal.fire('Anda berhasil Login!')
+//         sessionStorage.setItem('username', dbuser);
+            
+//         // ...
+//     })
+//     .catch((error) => {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
 
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user; 
-        location.href = "http://127.0.0.1:5500/Home%20Page/home.html"
-        Swal.fire('Anda berhasil Login!')
-        const dt = new Date();
-        update(ref(database, 'users/' + user.uid),{
-            last_login: dt,
-        
-        })
+//         Swal.fire('Username / Password anda salah!')
+//   });
 
-        // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+//     });
 
-        Swal.fire('Username / Password anda salah!')
-  });
+// const user = auth.currentUser;
+//     onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     const uid = user.uid;
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//   }
+// });
+// // Initialize Firebase
+      
+//     // ---------------------- The References----------------
 
-    });
+//       const username = document.getElementById('email');
+//       const pass = document.getElementById('password');
+//       const submit = document.getElementById('sub_btn');
+  
 
-const user = auth.currentUser;
-    onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+//     // ---------------------Authentication-------------------
+
+// function AuntheticateUser(){
+//         const dbref = ref(db);
+
+//         get(child(dbref, "UserList/"+ username.value.replace(/\./g, ','))).then((snapshot)=>{
+//           if(snapshot.exists()){
+
+//             let dbpass = snapshot.val().password;
+//             let dbuser = snapshot.val().usern;
+//             let dbnama = snapshot.val().fullname;
+
+
+//             console.log(dbpass);
+//             console.log(dbuser);
+//             if (dbpass == pass.value) {
+//               Signin();
+//               sessionStorage.setItem('username', dbuser);
+//               sessionStorage.setItem('password', dbpass);
+//               sessionStorage.setItem('fullname', dbnama);
+//               sessionStorage.setItem('agenda', dbagenda);
+
+
+              
+//               login(snapshot.val());
+//             }
+
+//             else{
+//               swal({
+//               title: "Perhatian!",
+//               text: "Nama Pengguna atau Password yang anda masukan salah.",
+//               icon: "warning",
+//               button: "Lanjutkan",
+//             });
+              
+//             } 
+//           }
+
+//           else{
+//             swal({
+//               title: "Perhatian!",
+//               text: "Nama Pengguna atau Password yang anda masukan salah.",
+//               icon: "warning",
+//               button: "Lanjutkan",
+//             });
+            
+            
+//           }
+//         });
+//       }
+//       submit.addEventListener('click', AuntheticateUser);
+
+// /////////////////////////////////////////////////////////////
+  
+
+//     function Signin() {
+//       // const currentUser = sessionStorage.getItem('username');
+//       update(ref(db, 'UserList/' + username.value.replace(/\./g, ',')), {
+//         login: +new Date(),
+//       })
+//         .then(() => {
+
+//         })
+//         .catch((error) => {
+//           alert('gagal');
+//         });
+//     }
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app); 
+      
+    // ---------------------- The References----------------
+
+      const username = document.getElementById('email');
+      const pass = document.getElementById('password');
+      const submit = document.getElementById('login');
+  
+
+    // ---------------------Authentication-------------------
+
+      function AuntheticateUser(){
+        const dbref = ref(db);
+
+        get(child(dbref, "UserList/"+ username.value.replace(/\./g, ','))).then((snapshot)=>{
+          if(snapshot.exists()){
+
+            let dbpass = snapshot.val().password;
+            let dbuser = snapshot.val().username;
+            let dbnama = snapshot.val().fullname;
+
+
+            console.log(dbpass);
+            console.log(dbuser);
+            if (dbpass == pass.value) {
+              Signin();
+              sessionStorage.setItem('username', dbuser);
+              sessionStorage.setItem('password', dbpass);
+              sessionStorage.setItem('fullname', dbnama);
+
+              
+              login(snapshot.val());
+            }
+
+            else{
+                      Swal.fire('Anda berhasil Login!')
+
+              
+            } 
+          }
+
+          else{
+                    Swal.fire('Anda gagal Login!')
+
+            
+            
+          }
+        });
+      }
+
+    // -------------------Descript --------------------------
+
+      // function decPass(dbpass){
+      //   var pass12 = CryptoJS.AES.encrypt(dbpass, pass.value);
+      //   return pass12.toString(CryptoJS.enc.Utf8);
+      // }
+
+    // ----------------------Login----------------------------
+
+      function login(user){
+        let keepLoggedIn = document.getElementById('login')
+          window.location= "http://127.0.0.1:5500/Home%20Page/home.html";
+      }
+
+    // --------------------ASSIGN THE EVENTS---------------------
+
+      submit.addEventListener('click', AuntheticateUser);
+
+    /////////////////////////////////////////////////////////////
+      
+
+        function Signin() {
+          // const currentUser = sessionStorage.getItem('username');
+          update(ref(db, 'UserList/' + username.value.replace(/\./g, ',')), {
+            login: +new Date(),
+          })
+            .then(() => {
+
+            })
+            .catch((error) => {
+              alert('gagal');
+            });
+        }
 
     </script>
 </html>

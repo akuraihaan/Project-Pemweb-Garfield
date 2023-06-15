@@ -1,0 +1,75 @@
+body{
+    background: url(bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Josef;
+    height: 100vh; /* Menetapkan tinggi elemen body menjadi 100% tinggi viewport */
+    width: 100%; /* Menetapkan lebar elemen body menjadi 100% lebar viewport */
+    /* ... kode CSS lainnya ... */
+}
+
+@font-face {
+    font-family: Josef;
+    src: url(static/JosefinSans-Medium.ttf)
+
+}
+
+video{
+    float: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 400px;
+    margin-left: 450px;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 19px;
+}
+
+.judul{
+    font-family: Josef;
+    text-align: center;
+    padding-top: 50px;
+}
+
+@font-face {
+    font-family: Josef;
+    src: url(static/JosefinSans-Medium.ttf)
+
+}
+
+body{
+    background: url(bg.jpg);
+    background-size: 110%;
+    font-family: Josef;
+}
+
+.container > div{
+    text-align: center;
+    padding-top: 17px;
+    font-family: Josef;
+}
+h1{
+    font-size: 50px;
+    font-family: Josef;
+    color: white;
+}
+
+#bulat > div{
+    background-color: #675D50;
+    border-radius: 50%;
+    font-size: 19px;
+    display:inline-flex;
+    padding: 60px 60px 60px 60px;
+    margin: 30px;
+    color: white;
+}
+
+.clickable , a{
+    cursor: pointer;
+    padding-top:12px;
+    padding-bottom:12px;
+    color: white;
+    font-family: Josef;
+}
+
