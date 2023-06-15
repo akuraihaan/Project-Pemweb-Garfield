@@ -8,7 +8,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 1000vh; /* Menetapkan tinggi elemen body menjadi 100% tinggi viewport */
+    height: 600vh; /* Menetapkan tinggi elemen body menjadi 100% tinggi viewport */
     width: 100%; /* Menetapkan lebar elemen body menjadi 100% lebar viewport */
     /* ... kode CSS lainnya ... */
 }
